@@ -5,7 +5,7 @@ function App() {
   const [monsters, setMonsters] = useState([]);
 
   const fetchMonsters = () => {
-    fetch('https://api.open5e.com/monsters')
+    fetch('https://www.dnd5eapi.co/api/monsters')
     .then(response => {
       return response.json()
     })
@@ -18,15 +18,19 @@ function App() {
     fetchMonsters();
   }, [])
 
-  console.log(monsters)
-
   return (
     <div className="App">
       <h1>Monster Search</h1>
-      {monsters.length && (
+      {monsters && (
           <ul>
             {monsters.map(monster => (
-              <li key={monster.name}>{monster.name}</li>
+              <li key={monster.name} className='monsterCard'>
+                <img src={`https://www.aidedd.org/dnd/images/${monster.index}.jpg`}
+                className='monsterImg'
+                alt={monster.name}
+                loading='lazy' />
+                <p>{monster.name}</p>
+              </li>
             ))}
           </ul>
       )}
