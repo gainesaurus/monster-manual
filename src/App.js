@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import MonsterCard from './Components/MonsterCard';
 import './App.css';
 
 function App() {
@@ -22,18 +23,12 @@ function App() {
     <div className="App">
       <h1>Monster Search</h1>
       {monsters && (
-          <ul>
-            {monsters.map(monster => (
-              <li key={monster.name} className='monsterCard'>
-                <img src={`https://www.aidedd.org/dnd/images/${monster.index}.jpg`}
-                className='monsterImg'
-                alt={monster.name}
-                loading='lazy' />
-                <p>{monster.name}</p>
-              </li>
-            ))}
-          </ul>
-      )}
+      <ul>
+        {monsters.map(monster => (
+          <MonsterCard monster={monster}/>
+        ))}
+      </ul>
+  )}
     </div>
   );
 }
