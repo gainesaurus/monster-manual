@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Monster Search</h1>
+      <h1 className="heading">Monster Search</h1>
       {monsters && (
       <ul>
         {monsters.map(monster => (
