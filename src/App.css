@@ -49,6 +49,11 @@ ul {
   height: 300px;
   background-color: white;
   overflow: hidden;
+  transition: all .2s ease-in-out; 
+}
+
+.monsterCard:hover {
+  transform: scale(1.025);
 }
 
 .imgContainer {
@@ -62,8 +67,8 @@ ul {
 .monsterImg {
   display: flex;
   object-fit: cover;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 98%;
+  max-height: 98%;
   justify-self: center;
 }
 
