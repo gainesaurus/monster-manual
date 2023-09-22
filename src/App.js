@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [monsters, setMonsters] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
 
   const fetchMonsters = () => {
     fetch('https://www.dnd5eapi.co/api/monsters')
@@ -22,9 +23,17 @@ function App() {
   return (
     <div className="App">
       <h1 className="heading">Monster Search</h1>
+      <input
+        className='searchBar'
+        placeholder="Find a Monster"
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}>
+      </input>
       {monsters && (
       <ul>
-        {monsters.map(monster => (
+        {monsters
+        .filter((monster) => monster.name.toLowerCase().includes(searchInput.toLowerCase()))
+        .map(monster => (
           <MonsterCard monster={monster}/>
         ))}
       </ul>

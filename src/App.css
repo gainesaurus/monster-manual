@@ -5,8 +5,10 @@
 }
 
 .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  background-color: var(--background);
 }
 
 .heading {
@@ -14,6 +16,16 @@
   padding: 1rem 0 1rem 0;
   justify-content: center;
   color: white;
+}
+
+.searchBar {
+  display: flex;
+  width: 20%;
+  min-width: 250px;
+  height: 2.4rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
 }
 
 ul {
@@ -32,6 +44,7 @@ ul {
   justify-content: flex-end;
   margin: 1rem;
   box-shadow: 1px 1px 4px black;
+  min-width: 250px;
   width: 20%;
   height: 300px;
   background-color: white;
