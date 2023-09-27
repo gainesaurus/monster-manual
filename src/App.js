@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
-import MonsterCard from './Components/MonsterCard';
+import MonsterList from './Components/MonsterList';
+import MonsterStats from './Components/MonsterStats';
 import './App.css';
 
 function App() {
   const [monsters, setMonsters] = useState([]);
   const [searchInput, setSearchInput] = useState('');
+  const [selectedMonster, setSelectedMonster] = useState(null);
 
   const fetchMonsters = () => {
     fetch('https://www.dnd5eapi.co/api/monsters')
@@ -23,21 +25,21 @@ function App() {
   return (
     <div className="App">
       <h1 className="heading">Monster Search</h1>
-      <input
-        className='searchBar'
-        placeholder="Find a Monster"
-        value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}>
-      </input>
-      {monsters && (
-      <ul>
-        {monsters
-        .filter((monster) => monster.name.toLowerCase().includes(searchInput.toLowerCase()))
-        .map(monster => (
-          <MonsterCard monster={monster}/>
-        ))}
-      </ul>
-  )}
+        <input
+          className='searchBar'
+          placeholder="Find a Monster"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}>
+        </input>
+        {!selectedMonster ? (
+          <MonsterList
+            monsters={monsters}
+            searchInput={searchInput}
+            setSelectedMonster={setSelectedMonster}/>
+        )
+        : <MonsterStats
+            selectedMonster={selectedMonster}/>
+        }
     </div>
   );
 }
