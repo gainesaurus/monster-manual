@@ -15,7 +15,7 @@ const MonsterStatsPage = ({ selectedMonster }) => {
   
   useEffect(() => {
     fetchOneMonster(selectedMonster);
-  }, []);
+  }, [selectedMonster]);
 
   return (thisMonster &&
     <div>

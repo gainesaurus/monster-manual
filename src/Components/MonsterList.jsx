@@ -21,7 +21,6 @@ const MonsterList = ({ setSelectedMonster}) => {
 
   return (
     <div className='listContainer'>
-      <h1 className="heading">Monster Search</h1>
       <input
         className='searchBar'
         placeholder="Find a Monster"

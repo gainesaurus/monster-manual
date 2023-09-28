@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
 import MonsterList from './Components/MonsterList';
 import MonsterStatsPage from './Components/MonsterStatsPage';
 import './App.css';
@@ -10,8 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <Navbar />
         <Routes>
-          <Route path='/'
+          <Route path='/monster-manual'
             element={<MonsterList setSelectedMonster={setSelectedMonster}/>} />
           {selectedMonster && 
             <Route path={`/${selectedMonster.index}`}
