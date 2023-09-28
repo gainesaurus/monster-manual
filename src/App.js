@@ -1,46 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MonsterList from './Components/MonsterList';
-import MonsterStats from './Components/MonsterStats';
+import MonsterStatsPage from './Components/MonsterStatsPage';
 import './App.css';
 
 function App() {
-  const [monsters, setMonsters] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
   const [selectedMonster, setSelectedMonster] = useState(null);
 
-  const fetchMonsters = () => {
-    fetch('https://www.dnd5eapi.co/api/monsters')
-    .then(response => {
-      return response.json()
-    })
-    .then(data => {
-      setMonsters(data.results)
-    })
-  }
-
-  useEffect(() => {
-    fetchMonsters();
-  }, [])
-
   return (
-    <div className="App">
-      <h1 className="heading">Monster Search</h1>
-        <input
-          className='searchBar'
-          placeholder="Find a Monster"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}>
-        </input>
-        {!selectedMonster ? (
-          <MonsterList
-            monsters={monsters}
-            searchInput={searchInput}
-            setSelectedMonster={setSelectedMonster}/>
-        )
-        : <MonsterStats
-            selectedMonster={selectedMonster}/>
-        }
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path='/'
+            element={<MonsterList setSelectedMonster={setSelectedMonster}/>} />
+          {selectedMonster && 
+            <Route path={`/${selectedMonster.index}`}
+              element={<MonsterStatsPage
+              selectedMonster={selectedMonster}/>} />
+          }
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const MonsterStats = ({ selectedMonster }) => {
+const MonsterStatsPage = ({ selectedMonster }) => {
   const [thisMonster, setThisMonster] = useState(null);
 
   const fetchOneMonster = (monster) => {
@@ -101,4 +101,4 @@ const MonsterStats = ({ selectedMonster }) => {
   )
 }
 
-export default MonsterStats;
+export default MonsterStatsPage;

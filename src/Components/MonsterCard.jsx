@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom';
 import { findMonsterImg } from "../services";
 
 const MonsterCard = ({ monster, setSelectedMonster }) => {
   let monsterFileName = findMonsterImg(monster);
   
   return (
-    <li key={monster.index}
+    <Link to={`/${monster.index}`}
+      key={monster.index}
       className='monsterCard'
       onClick={()=> setSelectedMonster(monster)}>
       <img
@@ -15,7 +17,7 @@ const MonsterCard = ({ monster, setSelectedMonster }) => {
         alt={monster.name}
         loading='lazy' />
       <label className='cardLabel'>{monster.name}</label>
-    </li>
+    </Link>
   )
 }
 
