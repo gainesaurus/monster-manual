@@ -11,6 +11,30 @@
   text-align: center;
 }
 
+.navContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  box-shadow: 1px 1px 2px black;
+  margin: 0 0 0.5rem 0;
+}
+
+.homeLink {
+  display: flex;
+  position: absolute;
+  left: 0.8rem;
+}
+
+.homeLinkImg {
+  display: flex;
+  height: 80px;
+  border: 2px solid var(--gold);
+  border-radius: 20%;
+}
+
 .listContainer {
   display: flex;
   flex-direction: column;
