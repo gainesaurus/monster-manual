@@ -4,6 +4,7 @@ export function findMonsterImg(monster) {
   if (!monster.index.toLowerCase().includes('dragon') && !monster.index.toLowerCase().includes('were') && !monster.index.toLowerCase().includes('vampire')) {
   return monster.index;
   }
+  else if (monster.index.includes('dragon-veteran')) return 'half-red-dragon';
   else if (monster.index.includes('dragon')) {
     if (monster.index.includes('black')) return'black-dragon';
     else if (monster.index.includes('blue')) return 'blue-dragon';
