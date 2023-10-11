@@ -70,9 +70,25 @@ const MonsterStatsPage = ({ selectedMonster }) => {
       </section>
       <section className='immResContainer'>
         <label>Vulnerabilities:</label>
+          {thisMonster.damage_vulnerabilities.length > 0 ? thisMonster.damage_vulnerabilities.map(vulnerability => (
+            <p>{vulnerability}</p>
+          )
+          ) : <p>none</p>}
         <label>Resistances:</label>
+          {thisMonster.damage_resistances.length > 0 ? thisMonster.damage_resistances.map(resistance => (
+              <p>{resistance}</p>
+            )
+            ) : <p>none</p>}
         <label>Damage Immunities:</label>
+          {thisMonster.damage_immunities.length > 0 ? thisMonster.damage_immunities.map(immunity => (
+              <p>{immunity}</p>
+            )
+            ) : <p>none</p>}
         <label>Condition Immunities:</label>
+          {thisMonster.condition_immunities.length > 0 ? thisMonster.condition_immunities.map(immunity => (
+              <p>{immunity}</p>
+            )
+            ) : <p>none</p>}
       </section>
       <section className='abilityContainer'>
         {thisMonster.special_abilities &&

@@ -1,12 +1,9 @@
 
 
 export function findMonsterImg(monster) {
-  if (!monster.index.toLowerCase().includes('dragon') && !monster.index.toLowerCase().includes('were') && !monster.index.toLowerCase().includes('vampire')) {
-  return monster.index;
-  }
-  else if (monster.index.includes('dragon-veteran')) return 'half-red-dragon';
-  else if (monster.index.includes('dragon')) {
-    if (monster.index.includes('black')) return'black-dragon';
+  if (monster.index.includes('dragon')) {
+    if (monster.index.includes('half')) return 'half-red-dragon';
+    else if (monster.index.includes('black')) return'black-dragon';
     else if (monster.index.includes('blue')) return 'blue-dragon';
     else if (monster.index.includes('brass')) return 'brass-dragon';
     else if (monster.index.includes('bronze')) return 'bronze-dragon';
@@ -17,11 +14,13 @@ export function findMonsterImg(monster) {
     else if (monster.index.includes('silver')) return 'silver-dragon';
     else if (monster.index.includes('white')) return 'white-dragon';
   }
-  else if (monster.index.toLowerCase().includes('werebear')) return 'wereBear';
-  else if (monster.index.toLowerCase().includes('wereboar')) return 'wereBoar';
-  else if (monster.index.toLowerCase().includes('wererat')) return 'wereRat';
-  else if (monster.index.toLowerCase().includes('weretiger')) return 'wereTiger';
-  else if (monster.index.toLowerCase().includes('werewolf')) return 'wereWolf';
+  else if (monster.index.toLowerCase().includes('were')) {
+    if (monster.index.toLowerCase().includes('werebear')) return 'wereBear';
+    else if (monster.index.toLowerCase().includes('wereboar')) return 'wereBoar';
+    else if (monster.index.toLowerCase().includes('wererat')) return 'wereRat';
+    else if (monster.index.toLowerCase().includes('weretiger')) return 'wereTiger';
+    else if (monster.index.toLowerCase().includes('werewolf')) return 'wereWolf';
+  }
   else if (monster.index.toLowerCase().includes('vampire')) {
     if (monster.index.toLowerCase().includes('spawn')) return 'vampire-spawn';
     else return 'vampire';
