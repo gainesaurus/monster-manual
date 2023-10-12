@@ -86,7 +86,7 @@ const MonsterStatsPage = ({ selectedMonster }) => {
             ) : <p>none</p>}
         <label>Condition Immunities:</label>
           {thisMonster.condition_immunities.length > 0 ? thisMonster.condition_immunities.map(immunity => (
-              <p>{immunity}</p>
+              <p>{immunity.index}</p>
             )
             ) : <p>none</p>}
       </section>
