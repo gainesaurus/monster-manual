@@ -33,7 +33,7 @@ const MonsterStatsPage = ({ selectedMonster }) => {
           <h2 className='monsterNameCard'>{thisMonster.name}</h2>
           <p>{thisMonster.alignment}</p>
           <p>{thisMonster.size} {thisMonster.type} - CR: {thisMonster.challenge_rating}</p>
-          <p>AC: {thisMonster.armor_class.value}</p>
+          <p>AC: {thisMonster.armor_class[0].value}</p>
           <p>HP: {thisMonster.hit_points}</p>
           <p>HP Roll: {thisMonster.hit_points_roll}</p>
           <p>Hit Dice: {thisMonster.hit_dice}</p>
@@ -53,72 +53,88 @@ const MonsterStatsPage = ({ selectedMonster }) => {
           </div>
         </div>
       </section>
-      <section className='scoreContainer'>
-        <p>Strength:{thisMonster.strength}</p>
-        <p>Dexterity:{thisMonster.dexterity}</p>
-        <p>Constitution:{thisMonster.constitution}</p>
-        <p>Intelligence:{thisMonster.intelligence}</p>
-        <p>Wisdom:{thisMonster.wisdom}</p>
-        <p>Charisma:{thisMonster.charisma}</p>
-      </section>
-      <section className='profContainer'>
-        <label>Proficiencies:</label>
-        {thisMonster.proficiencies.map(proficiency => (
-          <p>{proficiency.proficiency.name}</p>
-        )
-        )}
-      </section>
+      <div className='scoreProfContainer'>
+        <section className='scoreContainer'>
+          <p>Strength:{thisMonster.strength}</p>
+          <p>Dexterity:{thisMonster.dexterity}</p>
+          <p>Constitution:{thisMonster.constitution}</p>
+          <p>Intelligence:{thisMonster.intelligence}</p>
+          <p>Wisdom:{thisMonster.wisdom}</p>
+          <p>Charisma:{thisMonster.charisma}</p>
+        </section>
+        <section className='profContainer'>
+          <label>Proficiencies:</label>
+          {thisMonster.proficiencies.map(proficiency => (
+            <p>{proficiency.proficiency.name}</p>
+          )
+          )}
+        </section>
+      </div>
       <section className='immResContainer'>
         <label>Vulnerabilities:</label>
+        <ul>
           {thisMonster.damage_vulnerabilities.length > 0 ? thisMonster.damage_vulnerabilities.map(vulnerability => (
-            <p>{vulnerability}</p>
+            <li>{vulnerability}</li>
           )
-          ) : <p>none</p>}
+          ) : <li>none</li>}
+        </ul>
         <label>Resistances:</label>
+        <ul>
           {thisMonster.damage_resistances.length > 0 ? thisMonster.damage_resistances.map(resistance => (
-              <p>{resistance}</p>
+              <li>{resistance}</li>
             )
-            ) : <p>none</p>}
+            ) : <li>none</li>}
+        </ul>
         <label>Damage Immunities:</label>
+        <ul>
           {thisMonster.damage_immunities.length > 0 ? thisMonster.damage_immunities.map(immunity => (
-              <p>{immunity}</p>
+              <li>{immunity}</li>
             )
-            ) : <p>none</p>}
+            ) : <li>none</li>}
+        </ul>
         <label>Condition Immunities:</label>
+        <ul>
           {thisMonster.condition_immunities.length > 0 ? thisMonster.condition_immunities.map(immunity => (
-              <p>{immunity.index}</p>
+              <li>{immunity.index}</li>
             )
-            ) : <p>none</p>}
+            ) : <li>none</li>}
+        </ul>
       </section>
       <section className='abilityContainer'>
+        <ul>
         {thisMonster.special_abilities &&
           thisMonster.special_abilities.map(ability => (
-            <div>
-              <p>{ability.name}</p>
+            <li>
+              <label>{ability.name}</label>
               <p>{ability.desc}</p>
-            </div>
+            </li>
           ))
         }
+        </ul>
       </section>
       <section className='actionContainer'>
+        <ul>
         {thisMonster.actions &&
           thisMonster.actions.map(action => (
-            <div>
-              <p>{action.name}</p>
+            <li>
+              <label>{action.name}</label>
               <p>{action.desc}</p>
-            </div>
+            </li>
           ))
         }
+        </ul>
       </section>
       <section className='legActionContainer'>
+        <ul>
         {thisMonster.legendary_actions &&
           thisMonster.legendary_actions.map(legAction => (
-            <div>
-              <p>{legAction.name}</p>
+            <li>
+              <label>{legAction.name}</label>
               <p>{legAction.desc}</p>
-            </div>
+            </li>
           ))
         }
+        </ul>
       </section>
     </div>
   )
