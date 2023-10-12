@@ -44,8 +44,11 @@ const MonsterStatsPage = ({ selectedMonster }) => {
             {thisMonster.speed.fly &&
               <p>Fly Speed: {thisMonster.speed.fly}</p>
             }
-            {thisMonster.speed.walk &&
-              <p>Walk Speed: {thisMonster.speed.walk}</p>
+             {thisMonster.speed.climb &&
+              <p>Climb Speed: {thisMonster.speed.climb}</p>
+            }
+            {thisMonster.speed.burrow &&
+              <p>Burrow Speed: {thisMonster.speed.burrow}</p>
             }
             {thisMonster.speed.swim &&
               <p>Swim Speed: {thisMonster.speed.swim}</p>
@@ -55,19 +58,19 @@ const MonsterStatsPage = ({ selectedMonster }) => {
       </section>
       <div className='scoreProfContainer'>
         <section className='scoreContainer'>
-          <p>Strength:{thisMonster.strength}</p>
-          <p>Dexterity:{thisMonster.dexterity}</p>
-          <p>Constitution:{thisMonster.constitution}</p>
-          <p>Intelligence:{thisMonster.intelligence}</p>
-          <p>Wisdom:{thisMonster.wisdom}</p>
-          <p>Charisma:{thisMonster.charisma}</p>
+          <p>Strength: {thisMonster.strength}</p>
+          <p>Dexterity: {thisMonster.dexterity}</p>
+          <p>Constitution: {thisMonster.constitution}</p>
+          <p>Intelligence: {thisMonster.intelligence}</p>
+          <p>Wisdom: {thisMonster.wisdom}</p>
+          <p>Charisma: {thisMonster.charisma}</p>
         </section>
         <section className='profContainer'>
           <label>Proficiencies:</label>
-          {thisMonster.proficiencies.map(proficiency => (
+          {thisMonster.proficiencies.length > 0 ? thisMonster.proficiencies.map(proficiency => (
             <p>{proficiency.proficiency.name}</p>
           )
-          )}
+          ) : <p>none</p>}
         </section>
       </div>
       <section className='immResContainer'>
